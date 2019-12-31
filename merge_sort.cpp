@@ -1,76 +1,109 @@
+//BINARY SEARCH WITH MERGE_SORT USING RECURSION
 #include<iostream>
 using namespace std;
-void merg(int a[],int n,int si,int ei)
+int  binarysearch(int arr[],int n,int first ,int last,int num)
 {
-    int mid=(si+ei)/2;
-    int i=si;
+    if(first>=last)
+    {
+        return -1;
+    }
+    int mid=(first+last)/2;
+    if(arr[mid]==num)
+    {
+        return mid;
+    }
+    else if(arr[mid]>num)
+    {
+        return binarysearch(arr,n,first,mid-1,num);
+    }
+    else
+    {
+        return binarysearch(arr,n,mid+1,last,num);
+    }
+}
+int merg(int arr[],int n,int first,int last)
+{
+    int mid=(first+last)/2;
+    int *output=new int[n];
+    int i=first;
     int j=mid+1;
     int k=0;
-    int *output=new int [n];
-    while(i<=mid&&j<=ei)
+    while(i<=mid&&j<=last)
     {
-        if(a[i]<a[j])
+        if(arr[i]<arr[j])
         {
-            output[k]=a[i];
+            output[k]=arr[i];
             i++;
             k++;
         }
         else
         {
-            output[k]=a[j];
+            output[k]=arr[j];
             j++;
             k++;
         }
+
     }
     while(i<=mid)
     {
-        output[k]=a[i];
+        output[k]=arr[i];
         k++;
         i++;
     }
-    while(j<=ei)
+    while(j<=last)
     {
-        output[k]=a[j];
+        output[k]=arr[j];
         k++;
         j++;
     }
     int m=0;
-    for(int i=si;i<=ei;i++)
+    for(int i=first;i<=last;i++)
     {
-        a[i]=output[m];
+        arr[i]=output[m];
         m++;
     }
-    delete [] output;
+    delete []output;
 }
 
-void merge_sort(int a[],int n,int si,int ei)
+void merge_sort(int arr[],int n,int first,int last,int num)
 {
-    if(si>=ei)//base case
+    //base case
+    if(first>=last)
     {
         return;
     }
-    int mid=(si+ei)/2;
-    merge_sort(a,n,si,mid);
-    merge_sort(a,n,mid+1,ei);
-    merg(a,n,si,ei);
+    int mid=(first+last)/2;
+    merge_sort(arr,n,first,mid,num);
+    merge_sort(arr,n,mid+1,last,num);
+    merg(arr,n,first,last);
+    binarysearch(arr,n,first,last,num);
 }
+
 int main()
 {
+
     int n;
-    cout<<"Enter the size of array:"<<endl;
+    cout<<"Enter size of array:"<<endl;
     cin>>n;
-    int a[100];
+    int arr[100];
     cout<<"Enter the element in array:"<<endl;
     for(int i=0;i<n;i++)
     {
-        cin>>a[i];
+        cin>>arr[i];
     }
-    int si=0;
-    int ei=n-1;
-    merge_sort(a,n,si,ei);
-    for(int i=0;i<6;i++)
+    int num;
+    cout<<"Enter the element that you want search:"<<endl;
+    cin>>num;
+    int first=0;
+    int last=n-1;
+    merge_sort(arr,n,first,last,num);
+    cout<<"Sorted Array:"<<endl;
+    for(int i=0;i<n;i++)
     {
-        cout<<a[i]<<" ";
+        cout<<arr[i]<<" ";
     }
     cout<<endl;
+    cout<<"Searched Element:"<<endl;
+    cout<<binarysearch(arr,n,first,last,num);
 }
+
