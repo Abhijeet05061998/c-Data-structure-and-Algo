@@ -3,9 +3,9 @@ using namespace std;
 class Node
 {
 public:
+
     int data;
     Node*next;
-
     Node(int data)
     {
         this->data=data;
@@ -35,36 +35,28 @@ Node*takeinput()
     }
     return head;
 }
-void print(Node*head)
+ int middle(Node*head)
 {
     Node*temp=head;
-    if(temp==NULL)
+    Node*slow=head->next;
+    Node*fast=head->next;
+
+    if(head==NULL||head->next==NULL)
     {
-        return;
+        return -1 ;
     }
-    print(temp->next);
-    cout<<temp->data<<" ";
-}
-void findNode(Node*head,int i)
-{
-    Node*temp=head;
-    int count=0;
-    while(temp!=NULL)
+
+    while(slow!=NULL&&fast->next!=NULL)
     {
-        if(temp->data==i)
-        {
-            cout<<count;
-        }
-         count++;
-        temp=temp->next;
+        slow=slow->next;
+        fast=fast->next->next;
     }
+    cout<<slow->data;
 }
+
 int main()
 {
+
     Node*head=takeinput();
-    print(head);
-    cout<<endl;
-    int i;
-    cin>>i;
-    findNode(head,i);
+    middle(head);
 }
