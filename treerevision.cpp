@@ -3,7 +3,6 @@
 #include<queue>
 using namespace std;
 template<typename T>
-
 class Treenode
 {
 public:
@@ -14,8 +13,6 @@ public:
         this->data=data;
     }
 };
-
-
 Treenode<int>*takeinput()
 {
     int rootdata;
@@ -55,12 +52,30 @@ int countnode(Treenode<int>*root)
 }
 int sumofnodes(Treenode<int>*root)
 {
+    Treenode<int>*temp=root;
     int sum=root->data;
-    for(int i=0;i<root->children.size();i++)
+    for(int i=0;i<temp->children.size();i++)
     {
-        sum+=sumofnodes(root->children[i]);
+        sum+=sumofnodes(temp->children[i]);
     }
     return sum;
+}
+Treenode<int>*maximum(Treenode<int>*root)
+{
+    if(root==NULL)
+    {
+        return root;
+    }
+    Treenode<int>*maxim=root;
+    for(int i=0;i<root->children.size();i++)
+    {
+        Treenode<int>*temp=maximum(root->children[i]);
+        if(temp->data>maxim->data)
+        {
+          maxim=temp;
+        }
+    }
+    return maxim;
 }
 void print(Treenode<int>*root)
 {
@@ -83,6 +98,12 @@ void print(Treenode<int>*root)
     {
         Treenode<int>*root=takeinput();
         print(root);
+        Treenode<int>*ans=maximum(root);
+        if(root!=NULL)
+        {
        cout<<"total no nodes present in tree is:"<<countnode(root)<<endl;
-       cout<<"sum of nodes is:"<<sumofnodes(root);
+       cout<<"maximum value is presented in the tree:"<<ans->data<<endl;
+       cout<<"sum of nodes is:"<<sumofnodes(root)<<endl;
+        }
+
     }
