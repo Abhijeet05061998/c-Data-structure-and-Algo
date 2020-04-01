@@ -12,6 +12,13 @@ public:
     {
         this->data=data;
     }
+     ~Treenode()
+    {
+        for(int i=0;i<children.size();i++)
+        {
+            delete children[i];
+        }
+    }
 };
 Treenode<int>*takeinput()
 {
@@ -85,6 +92,7 @@ int main()
     preorder(root);
     cout<<endl;
     postorder(root);
+    delete root;
 }
 //5 3 6 7 8 0 2 9 10 1 13 1 11 1 14 0 0 0
 
