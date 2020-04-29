@@ -1,7 +1,7 @@
 #include<iostream>
 #include<queue>
 using namespace std;
-void DFSprint(int**edge,int n,int sv,bool*visited)
+void printDFS(int**edge,int n,int sv,bool*visited)
 {
     cout<<sv<<endl;
     visited[sv]=true;
@@ -73,7 +73,7 @@ int main()
         visited[i]=false;
     }
     cout<<"DFS:"<<endl;
-    print(edge,n,0,visited);
+    printDFS(edge,n,0,visited);
 
     cout<<"BFS:"<<endl;
     printBFS(edge,n,0);
