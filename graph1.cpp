@@ -1,7 +1,7 @@
 #include<iostream>
 #include<queue>
 using namespace std;
-void print(int**edge,int n,int sv,bool*visited)
+void DFSprint(int**edge,int n,int sv,bool*visited)
 {
     cout<<sv<<endl;
     visited[sv]=true;
