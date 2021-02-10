@@ -24,7 +24,9 @@ public:
 BinaryTree<int>*takeinput()
 {
     int rootdata;
+    
     cout<<"Enter the root data:"<<endl;
+    
     cin>>rootdata;
     if(rootdata==-1)
     {
