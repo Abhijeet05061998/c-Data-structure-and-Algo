@@ -48,6 +48,7 @@ Node*takeinput()
 
     while(slow!=NULL&&fast->next!=NULL)
     {
+        //Best approach and another is simply traverse in ll
         slow=slow->next;
         fast=fast->next->next;
     }
