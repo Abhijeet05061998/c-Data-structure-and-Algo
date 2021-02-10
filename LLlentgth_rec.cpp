@@ -23,6 +23,7 @@ Node *takeinput()
     Node*tail=NULL;
     while(data!=0)
     {
+        
         Node *newNode=new Node(data);
         if(head==NULL)
         {
