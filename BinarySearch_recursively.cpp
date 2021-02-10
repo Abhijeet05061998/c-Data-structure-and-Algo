@@ -6,7 +6,7 @@ using namespace std;
       {
           return -1;
       }
-      int mid=(first+last)/2;
+      int mid=(first-(first+last))/2;
       if(input[mid]==element)
       {
           return mid;
