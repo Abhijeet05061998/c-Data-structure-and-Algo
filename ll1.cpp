@@ -57,7 +57,7 @@ Node*takeinput()
 
 int main()
 {
-
+//making a object of Node class and calling takenode in main function
     Node*head=takeinput();
     middle(head);
 }
