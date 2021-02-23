@@ -58,15 +58,15 @@ Node* mergesort(Node*head1,Node*head2)
        else
        {
            if(fh==NULL)
-           {
+           
                fh=head2;
                ft=head2;
-           }
+           
            else
-           {
+           
                ft->next=head2;
                ft=head2;
-           }
+           
            head2=head2->next;
        }
    }
