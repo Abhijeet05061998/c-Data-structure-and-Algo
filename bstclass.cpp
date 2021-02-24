@@ -1,4 +1,4 @@
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
 
 class BinaryTree
@@ -15,7 +15,7 @@ class BinaryTree
 };
 class BST
 {
-    private:
+    public:
     int *root;
     BST(int )
 
