@@ -16,7 +16,7 @@ int  main()
         int dev=arr[i]/4;
         if(arr[i]%4==0)
         {
-            cout<<dev<<" ";
+            cout<<dev;
         }
         else
         {
