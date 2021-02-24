@@ -1,6 +1,5 @@
-#include<iostream>
-#include<vector>
-#include<queue>
+#include<bits/stdc++.h>
+
 using namespace std;
 template<typename T>
 class Treenode
