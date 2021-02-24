@@ -101,9 +101,9 @@ void print(Treenode<int>*root)
         Treenode<int>*ans=maximum(root);
         if(root!=NULL)
         {
-       cout<<"total no nodes present in tree is:"<<countnode(root)<<endl;
-       cout<<"maximum value is presented in the tree:"<<ans->data<<endl;
-       cout<<"sum of nodes is:"<<sumofnodes(root)<<endl;
+       cout<<countnode(root)<<endl;
+       cout<<ans->data<<endl;
+       cout<<sumofnodes(root)<<endl;
         }
 
     }
