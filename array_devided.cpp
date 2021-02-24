@@ -20,7 +20,7 @@ int  main()
         }
         else
         {
-            cout<<"-1"<<" ";
+            cout<<"-1";
         }
     }
 }
